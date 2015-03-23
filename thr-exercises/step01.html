@@ -34,7 +34,7 @@
             .hidden {display: none;}
 
             ul.thumbList { margin: 0; padding: 0; list-style-type: none;}
-            ul.thumbList li { float:left; margin: 10px;}
+            ul.thumbList li { float:left; margin: 10px; cursor: pointer;}
             ul.thumbList li img { height: 60px; width: 60px;}
         </style>
         
@@ -71,7 +71,15 @@
             <!-- works only on chrome -->
             <dialog id="thumbDialog">
                 <button id="closeThumbDialog">Close</button><br />
-                <img src="" alt /><br />
+                
+                <div class="thumbDialogMedia">
+                    <video width="350" height="350" controls autoplay src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    
+                    <img src="" alt />
+                </div>
                 <button id="previousThumbDialog"><i class="fa fa-arrow-left fa-2x"></i></button>
                 <button id="nextThumbDialog"><i class="fa fa-arrow-right fa-2x"></i></button>
             </dialog>

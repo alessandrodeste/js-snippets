@@ -14,7 +14,7 @@ $(function () {
 });
 
 //
-// ViewModel class
+// ViewModel class (a sort of...)
 //
 function Page01ViewModel() {
 	
@@ -24,7 +24,6 @@ function Page01ViewModel() {
 	// Private fields
 	var that = this;
 	var selectedThumb = undefined;
-	var timeout = undefined;
 
 	//
 	// Public methods
@@ -46,9 +45,8 @@ function Page01ViewModel() {
 			thumbDialog.close();
 			
 			// Clear variables
-			$('#thumbDialog .thumbList').empty();
 			selectedThumb = undefined;
-			window.clearInterval(timeout);
+			$('dialog video').hide().attr('src', '');
 			
 		};
 		
@@ -115,10 +113,8 @@ function Page01ViewModel() {
 		
 		//var childrenThumbs = $(this.querySelector("ul")).children();
 	
-		for (var i = 0; i < that.contents.length; i++)
-		{
-			if (that.contents[i].id == content.id)
-			{
+		for (var i = 0; i < that.contents.length; i++) {
+			if (that.contents[i].id == content.id) {
 				selectedThumb = i;
 				break;
 			}
@@ -128,13 +124,8 @@ function Page01ViewModel() {
 		
 		
 		var thumbDialog = document.getElementById("thumbDialog");
-		//var coverimage = thumbDialog.getElementsByTagName("img")[0];
-		//coverimage.setAttribute("src", content.thumbnails[0]);
-		//coverimage.setAttribute("alt", content.thumbnails[0]);
 		thumbDialog.showModal();
 		
-		// TODO: handle play/pause
-		timeout = setTimeout(showNextImage, 4000);
 	}
 	
 	function showNextImage(e) {
@@ -157,11 +148,43 @@ function Page01ViewModel() {
 	}
 	
 	function changeImage(selectedThumb) {
-		var img = $('dialog img');
-		img.fadeOut('fast', function () {
-	        img.attr('src', that.contents[selectedThumb].thumbnail);
-	        img.fadeIn('fast');
-    	});
+		
+		// TODO: if type VIDEO show video, else show image (NOT the thumbnail)
+		var dialog = $('.thumbDialogMedia');
+		
+		if (that.contents[selectedThumb].contentType == "VIDEO")
+		{
+			dialog.fadeOut('fast', function () {
+				
+		        // FIXME: check the video type
+				$('dialog img').hide();
+				var video = $('dialog video');
+			 	video.show();
+				video.attr('src', that.contents[selectedThumb].url);
+				
+		        dialog.fadeIn('fast');
+	    	});
+	    	
+			
+		}
+		else
+		{	
+			dialog.fadeOut('fast', function () {
+				
+		        // FIXME: check the video type
+				$('dialog video').hide().attr('src', '');
+				var img = $('dialog img');
+				img.show();
+				img.attr('src', that.contents[selectedThumb].thumbnail);
+				
+		        dialog.fadeIn('fast');
+	    	});
+	    	
+			
+		}
+		
+		
+	
 	}
 	
 	

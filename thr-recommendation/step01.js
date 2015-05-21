@@ -2,7 +2,10 @@
 // On page ready
 //
 $(function () {
-  
+	
+    var dialog = document.querySelector('dialog');
+    dialogPolyfill.registerDialog(dialog);
+    
 	var contentsIds = [
 		["9688c985-0ff8-47ae-9eab-a95184801e4f", "oz1csf"],
 		["392a10d0-03a7-4e83-9ce6-2351988a7bba", "BIWdGF", "mobile"]

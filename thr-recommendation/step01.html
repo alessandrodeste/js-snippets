@@ -3,10 +3,12 @@
     <head>
         <title>Thr - Exercises</title>
         
+        <script src="./lib/dialog-polyfill.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="./lib/jquery.tablesorter.min.js"></script>
         <script src="step01.js"></script>
         
+        <link rel="stylesheet" href="./theme/dialog-polyfill/dialog-polyfill.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./theme/tablesorter/style.css">
         <style>
@@ -42,27 +44,55 @@
     <body>
       
         
-        <h1>Exercise 2</h1>
+        <!--<h1>Exercise 2</h1>-->
         
-        <div id="content-ex01">
-            <table id="table-ex01" class="tablesorter" cellspacing="0"> 
-                <thead> 
-                <tr> 
-                    <th>Open</th> 
-                    <th>Preview</th> 
-                    <th>Owner</th> 
-                    <th>Creation</th> 
-                </tr> 
-                </thead> 
-                <tbody> 
+        <!--<div id="content-ex01">-->
+        <!--    <table id="table-ex01" class="tablesorter" cellspacing="0"> -->
+        <!--        <thead> -->
+        <!--        <tr> -->
+        <!--            <th>Open</th> -->
+        <!--            <th>Preview</th> -->
+        <!--            <th>Owner</th> -->
+        <!--            <th>Creation</th> -->
+        <!--        </tr> -->
+        <!--        </thead> -->
+        <!--        <tbody> -->
+        
                     <!-- Loaded dinamically -->
-                </tbody> 
-            </table>
+        <!--        </tbody> -->
+        <!--    </table>-->
             
           
-        </div>
+        <!--</div>-->
         
         <h1>Exercise 3</h1>
+        
+        <div id="content-ex02">
+            <ul class="thumbList">
+                
+            </ul>
+            
+            <!-- works only on chrome -->
+            <dialog id="thumbDialog">
+                <button id="closeThumbDialog">Close</button><br />
+                
+                <div class="thumbDialogMedia">
+                    <video width="350" height="350" controls autoplay src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    
+                    
+                    <img src="" alt />
+                </div>
+                <button id="previousThumbDialog"><i class="fa fa-arrow-left fa-2x"></i></button>
+                <button id="nextThumbDialog"><i class="fa fa-arrow-right fa-2x"></i></button>
+            </dialog>
+            
+        </div>
+        
+        </br>
+        
+        <h1>Recommended to you</h1>
         
         <div id="content-ex02">
             <ul class="thumbList">
